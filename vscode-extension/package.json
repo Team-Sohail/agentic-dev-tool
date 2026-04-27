@@ -1,0 +1,55 @@
+{
+  "name": "agentic-dev-tool",
+  "displayName": "Agentic Dev Tool",
+  "description": "AI-powered agentic development assistant",
+  "version": "0.0.1",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "agentic-dev-tool.helloWorld",
+        "title": "Agentic Dev Tool: Hello World"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "agentic-dev-tool-sidebar",
+          "title": "Agentic Dev Tool",
+          "icon": "$(robot)"
+        }
+      ]
+    },
+    "views": {
+      "agentic-dev-tool-sidebar": [
+        {
+          "type": "webview",
+          "id": "agentic-dev-tool.agentPanel",
+          "name": "Agent"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.3.0"
+  }
+}
